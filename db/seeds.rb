@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+require 'json'
+# require 'pry'
+
+# Whenever you seed, always remember to destroy all the existing data of that Model
+
+Ingredient.destroy_all
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+result = JSON.parse(ingredients_serialized)
+ingredients = result['drinks'].map { |ingredient| ingredient['strIngredient1'] }
+
+5.times do
+  Ingredient.create(name: ingredients.sample)
+end
+
+Cocktail.create(name: 'Mojito')

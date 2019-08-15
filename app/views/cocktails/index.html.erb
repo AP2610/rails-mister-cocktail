@@ -1,0 +1,9 @@
+<h1>Alcoholics Central - Where every alcholic finds their poison</h1>
+
+<ol>
+  <% @cocktails.each do |cocktail| %>
+    <li><%= link_to cocktail.name, cocktail_path(cocktail.id) %></li>
+  <% end %>
+</ol>
+
+<%= link_to "Add a Cocktail", new_cocktail_path %>
