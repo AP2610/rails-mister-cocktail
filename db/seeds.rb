@@ -23,3 +23,8 @@ ingredients = result['drinks'].map { |ingredient| ingredient['strIngredient1'] }
 end
 
 Cocktail.create(name: 'Mojito')
+
+url = "https://unsplash.com/search/photos/mojito"
+cocktail = Cocktail.new(title: 'Mojito', photo: "A great cocktail")
+cocktail.remote_photo_url = url
+cocktail.save
