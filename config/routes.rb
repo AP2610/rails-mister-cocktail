@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  root to: 'cocktails#index'
+
   resources :cocktails do
-    resources :doses, only: [:new, :create, :destroy]
+    resources :doses, only: [:create]
   end
+
+  resources :doses, only: [:destroy]
 
   # Make your first route, the path will start from the controller which holds
   # The corresponding action. Once you've made your route, go ahead and

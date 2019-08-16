@@ -2,12 +2,18 @@
 <h4>Ingredients</h4>
 <ol>
   <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.ingredient.name%> <%=dose.description %> <%= link_to "Delete", cocktail_dose_path(@cocktail.id, dose.id), method: :delete,
+    <li><%= dose.ingredient.name%> <%=dose.description %> <%= link_to "Delete", dose_path(dose.id), method: :delete,
       data: { confirm: "Are you sure?" } %></li>
   <% end %>
 </ol>
 
+<h6>Add an ingredient and its dose</h6>
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit %>
+<% end %>
 
 
-<p><%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %></p>
-<p><%= link_to "Home", cocktails_path %></p>
+<p><%= link_to "Home", root_path %></p>

@@ -11,16 +11,14 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
+  # <p><%= link_to cocktail.name, cocktail_path(cocktail.id) %></p>
+
   def show
     find_cocktail
     @ingredients = @cocktail.ingredients
     @doses = @cocktail.doses
-    @ing = @doses.each { |dose| dose.description }
-    # raise
+    @dose = Dose.new
   end
-
-  # <% @doses.each do |dose| %>
-  # <%= dose.description %>
 
   def new
     @cocktail = Cocktail.new
@@ -34,7 +32,6 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
-    # raise
   end
 
   private

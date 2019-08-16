@@ -1,9 +1,25 @@
-<h1>Alcoholics Central - Where every alcholic finds their poison</h1>
 
-<ol>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail.id) %></li>
-  <% end %>
-</ol>
+<div class="container mb-5 mt-5 text-center">
+  <div class="text-center mb-5 header">
+    <h1>Alcoholics Central</h1>
+    <h4>Where every alcholic finds their poison</h4>
+  </div>
 
-<%= link_to "Add a Cocktail", new_cocktail_path %>
+      <div class="row text-center">
+        <% @cocktails.each do |cocktail| %>
+          <div class="col-sm-4">
+            <div class="card mb-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= cocktail.name %></h5>
+                <%= link_to "Make a #{cocktail.name}", cocktail_path(cocktail.id), class: "btn btn-dark" %>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+        </div>
+
+  <div class="text-center">
+    <%= link_to "Add a Cocktail", new_cocktail_path, class: "btn btn-dark btn-block mt-3" %>
+  </div>
+</div>

@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+body {
+  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%), asset-url('home.jpeg');
+  background-height: 100vh;
+  background-size: cover;
+}
+
+.card {
+  background-image: url("https://picsum.photos/id/13/1000/1000");
+  background-size: cover;
+  height: 200px;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.header {
+  color: #ececec;
+  h4 {
+    font-style: italic;
+    font-weight: lighter;
+  }
+}
+
+.header h1:after {
+    content:' ';
+    display: block;
+    border:2px solid #ececec;
+    border-radius: 2px;
+    width: 200px;
+    position: relative;
+    left: 450px;
+    margin: 10px;
+}
